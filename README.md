@@ -3,8 +3,6 @@ Production-ready AWS infrastructure using Terraform modules, workspaces, and S3 
 
 # 🏗️ Full Terraform Architecture – Complete Explanation
 
-Let's walk through **every layer** of what we've built together! 🎯
-
 ---
 
 ## 🗺️ The Big Picture
