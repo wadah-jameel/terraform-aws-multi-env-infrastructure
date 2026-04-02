@@ -1,7 +1,7 @@
 # terraform-aws-multi-env-infrastructure
 Production-ready AWS infrastructure using Terraform modules, workspaces, and S3 remote state for dev/staging/prod environments
 
-# 🏗️ Full Terraform Architecture – Complete Explanation
+# 🏗️ Full Terraform Architecture
 
 ---
 
