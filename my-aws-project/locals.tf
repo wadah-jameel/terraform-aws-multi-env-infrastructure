@@ -2,6 +2,13 @@ locals {
   # Current workspace name
   env = terraform.workspace
 
+
+  # Prevent accidental prod destroy
+  is_prod = local.env == "prod"
+
+  # Force confirmation for prod changes
+  prevent_destroy_prod = local.is_prod ? true : false
+
   # ─── ENVIRONMENT CONFIGURATIONS ─────────────────────────
   env_config = {
     dev = {
