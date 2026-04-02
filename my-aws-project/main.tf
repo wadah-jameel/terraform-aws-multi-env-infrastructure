@@ -10,6 +10,26 @@ module "vpc" {
   tags                 = local.config.tags                      # ← From locals
 }
 
+
+# Prod protection resource
+resource "aws_resourcegroups_group" "env_group" {
+  name = "${local.env}-resource-group"
+
+  resource_query {
+    query = jsonencode({
+      ResourceTypeFilters = ["AWS::AllSupported"]
+      TagFilters = [{
+        Key    = "Environment"
+        Values = [local.env]
+      }]
+    })
+  }
+
+  lifecycle {
+    prevent_destroy = true   # ← Blocks destroy on ALL envs
+  }
+}
+
 # ─── EC2 MODULE ─────────────────────────────────────────────
 module "ec2" {
   source = "./modules/ec2"
